@@ -1,0 +1,81 @@
+body {
+    font-family: sans-serif;
+    /* Set a base font family */
+    margin: 0;
+    /* Remove default body margins */
+    padding: 0;
+    /* Remove default body paddings */
+}
+
+#message {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    /* Optional: Center text within the div */
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 1em 0;
+    /* Set consistent margin for headings */
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+    /* Add margin between logo and text */
+}
+
+#date,
+#time {
+    display: inline-block;
+    margin-right: 10px;
+    /* Add margin between date and time */
+}
+
+.card {
+    border-radius: 10px;
+    /* Set rounded corners for cards */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Add subtle shadow */
+}
+
+.card-title {
+    margin-bottom: 1.5rem;
+    /* Increase space below title */
+}
+
+.table-striped tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+    /* Add subtle background color for even rows */
+}
+
+.btn-outline-primary {
+    color: #007bff;
+    /* Set primary color for outline buttons */
+    border-color: #007bff;
+    /* Set border color for outline buttons */
+}
+
+.bi {
+    font-size: 1.5rem;
+    /* Adjust size of social media icons */
+    margin-left: 10px;
+    /* Add margin between icons */
+    color: #ddd;
+    /* Set default color for icons */
+}
+
+.bi:hover {
+    color: #007bff;
+    /* Change color on hover for icons */
+}

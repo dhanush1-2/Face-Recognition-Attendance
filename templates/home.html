@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Face Recognised Attendence</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/styles.css">
+
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                    <a href="#"
+                        class="navbar-brand d-flex align-items-center col-md-3 col-lg-2 me-md-auto text-decoration-none">
+                        <img src="../static/images/logo.png" width="30" height="30" class="d-inline-block align-top"
+                            alt="Company Logo">
+                        <h1 class="ms-1 fs-4">Face Recognition Attendance</h1>
+                    </a>
+
+                    <div class="col-md-6 d-flex align-items-center justify-content-end mx-auto">
+                        <span id="date" class="text-muted">
+                            <p>DATE</p>
+                        </span>
+                        <span id="time" class="text-muted ms-3">
+                            <p>TIME</p>
+                        </span>
+                    </div>
+                </header>
+            </div>
+        </div>
+        <div id="message">
+            <p class="text-end">
+            <h3 style="color: blueviolet;
+            padding: 10px;
+            border-radius: 5px;">{{ mess }}</h3>
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card rounded-20 shadow p-3 mb-4">
+                    <h2 class="card-title mb-3">Today's Attendance <i class="material-icons"></i></h2>
+                    <a href="/start" class="btn btn-outline-primary w-100">Take Attendance </a>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Sl. No</th>
+                                <th>Name</th>
+                                <th>ID</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if l %}
+                            {% for i in range(l) %}
+                            <tr>
+                                <td>{{ i + 1 }}</td>
+                                <td>{{ names[i] }}</td>
+                                <td>{{ rolls[i] }}</td>
+                                <td>{{ times[i] }}</td>
+                            </tr>
+                            {% endfor %}
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card rounded-20 shadow p-3 mb-4">
+                    <form action="/add" method="POST" enctype="multipart/form-data">
+                        <h2 class="card-title mb-3">Add New User <i class="material-icons"></i>
+                        </h2>
+                        <label for="newusername" class="form-label">Enter New User Name*</label> <input type="text"
+                            id="newusername" name="newusername" class="form-control mb-3" required>
+                        <label for="newusereid" class="form-label">Enter New User ID*</label>
+                        <input type="text" id="newusereid" name="newuserid" class="form-control mb-3" required>
+                        <button type="submit" class="btn btn-outline-primary w-100">Add New User <i
+                                class="material-icons"></i></button>
+                        <br>
+                        <h5 class="card-text mt-4">Total Users in Database: {{ totalreg }}</h5>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <script src="../static/myscripts.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity
